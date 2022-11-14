@@ -58,7 +58,7 @@ export class CdkStack extends cdk.Stack {
       handler: 'index.handler',
       code: lambda.Code.fromAsset('lambda'),
       timeout: cdk.Duration.seconds(30),
-      memorySize: 128,
+      memorySize: 3072,
       vpc,
       role: myRole
     })
