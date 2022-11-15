@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 
 exports.handler = async (event) => {
-    console.log('Starting add comment.', JSON.stringify(event, null, 2));
+    console.log(JSON.stringify(event, null, 2));
     try {
         const res = await fetch('https://randomuser.me/api');
         const resJson = await res.json();
