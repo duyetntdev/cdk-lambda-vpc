@@ -2,7 +2,6 @@ import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
 import * as iam from 'aws-cdk-lib/aws-iam';
-import * as sqs from 'aws-cdk-lib/aws-sqs';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as cloudwatch from 'aws-cdk-lib/aws-cloudwatch';
 
@@ -34,16 +33,7 @@ export class CdkStack extends cdk.Stack {
 
     console.log("igwId", igwId)
 
-    // The code that defines your stack goes here
-
-    // example resource
-    // const queue = new sqs.Queue(this, 'CdkDemoQueue', {
-    //   visibilityTimeout: cdk.Duration.seconds(300)
-    // });
-    //
-    // console.log("queue==> ", queue)
-
-    const myRole = new iam.Role(this, 'RoleDemoLambda', {
+    const myRole: any = new iam.Role(this, 'RoleDemoLambda', {
       assumedBy: new iam.ServicePrincipal('lambda.amazonaws.com'),
       description: 'Role Lambda function create by CDK',
       roleName: `demo_lambda_chobiit`,
@@ -52,7 +42,7 @@ export class CdkStack extends cdk.Stack {
       ]
     });
 
-    const lambdaDemo = new lambda.Function(this, 'LambdaDemo', {
+    const lambdaDemo: any = new lambda.Function(this, 'LambdaDemo', {
       functionName: 'lambdaDemo',
       runtime: lambda.Runtime.NODEJS_16_X,
       handler: 'index.handler',
